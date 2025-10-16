@@ -29,7 +29,7 @@ Open http://localhost:3000
 
 ## What you would improve with more time
 
-Currently, the app handles 30 users efficiently without optimization. For production with more users, I would add:
+1. Currently, the app handles 30 users efficiently without optimization. For production with more users, I would add:
 
 eg.
 
@@ -62,30 +62,30 @@ const UserCard = memo(({ user }: UserCardProps) => {
 })
 ```
 
-Users lose favourite status on refresh now, I would update that.
+2. Users lose favourite status on refresh now, I would update that.
 
-setUsers in Zustand doesn't work 100% if we had filtering, we can end up an empty page as far as I see.
+3. `setUsers` in Zustand doesn't work 100% if we had filtering, we can end up an empty page as far as I see.
 
-Offline toggle is simulated, not real network detection
-The “Go Offline” button only toggles isOffline in Zustand — it doesn’t reflect actual network loss.
+4. Offline toggle is simulated, not real network detection
+   The “Go Offline” button only toggles isOffline in Zustand — it doesn’t reflect actual network loss.
 
-A real version should rely on navigator.onLine and window.addEventListener("online"/"offline").
+A real version should rely on `navigator.onLine` and `window.addEventListener("online"/"offline")`.
 
-User type is not 1:1 with API type, and also there is no safe layer (also for DB) in case API changes.
+5. `User` type is not 1:1 with API type, and also there is no safe layer (also for DB) in case API changes.
 
-No more advanced error banner for API failures, especially if cache is empty at the same time. I would add a dedicated error page and also maybe some retry button.
+6. No more advanced error banner for API failures, especially if cache is empty at the same time. I would add a dedicated error page and also maybe some retry button.
 
-For now, the app is fully client side, so none of the components really use next.js. For production we would need to discuss that how it should work.
+7. For now, the app is fully client side `use client`, so none of the components really use next.js. For production we would need to discuss that how it should work.
 
-I would add sortby (name, email) /sortDir in Zustand
+8. I would add sortby (name, email) /sortDir in Zustand
 
-I would add search or filter by query (also in Zustand)
+9. I would add search or filter by query (also in Zustand)
 
-Dark mode support using Tailwind’s dark: utilities
+10. Dark mode support using Tailwind’s dark: utilities
 
 - Tailwind configured with `darkMode: "class"`.
 - Theme state with `next-themes`
 - `ThemeToggle` component to toggle dark/light, preference persisted in `localStorage`?
 - `dark:` in components
 
-Basic test coverage with Jest or React Testing Library
+11. Basic test coverage with Jest or React Testing Library
